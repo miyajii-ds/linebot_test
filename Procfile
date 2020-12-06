@@ -1,1 +1,1 @@
-web: gunicorn git_test:app --log-file
+web: gunicorn git_test:app --log-file=-

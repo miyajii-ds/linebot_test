@@ -12,20 +12,22 @@ def odd_even():
         <input name="num"></input>
         </form>"""
     else:
-		try
-			return """
+        try
+		return """
 			{}は{}です
 			<form action="/" method="POST">
 			<input name="num"></input>
 			</form>""".format(str(request.form["num"]),
 			["偶数","奇数"][int(request.form["num"])%2])
 		except:
-			return"""
-			NG
-			<form action="/" method="POST">
-			<input name="num"></input>
-			</form>"""
-	
+		
+        except:
+            	return """
+                    有効な数字ではありません！入力しなおしてください。
+                    <form action="/" method="POST">
+                    <input name="num"></input>
+                    </form>"""
+
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)

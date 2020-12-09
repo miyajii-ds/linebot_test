@@ -19,7 +19,7 @@ def odd_even():
 			<input name="num"></input>
 			</form>""".format(str(request.form["num"]),
 			["偶数","奇数"][int(request.form["num"])%2])
-		except:
+		
 		
         except:
             	return """

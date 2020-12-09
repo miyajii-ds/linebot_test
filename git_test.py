@@ -2,15 +2,15 @@ from flask import Flask,request
 
 app = Flask(__name__)
 
-@app.route("/",methods="GET","POST")
+@app.route("/",methods=["GET","POST"])
 def hello():
 	if request.method =="GET":
-		return """整数入れて!!
+		return """整数入れて
 		<form action="/" method="POST">
 		<input name="num"></input>
 		</form>"""
 	else:
-		try:
+		try
 			return """
 			{}は{}です
 			<form action="/" method="POST">

@@ -2,10 +2,10 @@ from flask import Flask,request
 
 app = Flask(__name__)
 
-@app.route("/",methods=["GET","POST"])
-def hello():
+@app.route("/<test_id>",methods=["GET","POST"])
+def hello(id):
 	if request.method =="GET":
-		return """
+		return str(id)+"""
 		整数入れて
 		<form action="/" method="POST">
 		<input name="num"></input>

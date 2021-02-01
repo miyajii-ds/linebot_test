@@ -75,11 +75,9 @@ def reply_message(event):
         event.reply_token,
         TextSendMessage(text='こちらこーるばっく処理からお送りします:'+event.message.text))
 
-@handler.add(MessageEvent,message=TextMessage)
-def ligthing1(event):
-	if event.message.text == 'でんき':
-		ifttt_webhoook('Go_work')
-		line_bot_api.reply_message(
+    if event.message.text == 'でんき':
+        ifttt_webhoook('Go_work')
+        line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='電気つけたよ:'+event.message.text))
 

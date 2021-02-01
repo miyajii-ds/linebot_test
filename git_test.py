@@ -71,7 +71,8 @@ def callback_post():
 @handler.add(MessageEvent, message=TextMessage)
 def reply_message(event):
     # reply のテスト。
-    line_bot_api.reply_message(
+    if event.message.text in ['やあ']:
+        line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='こちらこーるばっく処理からお送りします:'+event.message.text))
 

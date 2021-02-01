@@ -72,6 +72,7 @@ def callback_post():
 def reply_message(event):
     # reply のテスト。
     if event.message.text in ['やあ']:
+        ifttt_webhoook('Go_work')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='こちらこーるばっく処理からお送りします:'+event.message.text))

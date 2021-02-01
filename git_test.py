@@ -17,6 +17,8 @@ import os
 import logging
 import sys
 
+import requests
+
 app = Flask(__name__)
 
 # ログを標準出力へ。heroku logs --tail で確認するためです。
@@ -27,9 +29,18 @@ app.logger.setLevel(logging.INFO)
 # 大事な情報は環境変数から取得。
 CHANNEL_ACCESS_TOKEN = os.environ['CHANNEL_ACCESS_TOKEN']
 CHANNEL_SECRET = os.environ['CHANNEL_SECRET']
+IFTTT_KEY = os.environ['IFTTT_KEY']
 
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
+
+
+def ifttt_webhoook(event_id):
+	ifttt_url = 'https://maker.ifttt.com/trigger/'+event_id+'/with/key/'+IFTTT_KEY
+	
+	response = requests.post(url)
+
+
 
 
 # 必須ではないけれど、サーバに上がったとき確認するためにトップページを追加しておきます。
@@ -63,6 +74,16 @@ def reply_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='こちらこーるばっく処理からお送りします:'+event.message.text))
+
+@handler.add(MessageEvent,message=TextMessage)
+def ligthing1(event):
+	if event.message.text == 'でんき':
+		ifttt_webhoook('Go_work')
+		line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='電気つけたよ:'+event.message.text))
+
+
 
 
 if __name__ == '__main__':

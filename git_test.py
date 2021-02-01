@@ -75,7 +75,7 @@ def reply_message(event):
         event.reply_token,
         TextSendMessage(text='こちらこーるばっく処理からお送りします:'+event.message.text))
 
-    if event.message.text == 'でんき':
+    if event.message.text in 'でんき':
         ifttt_webhoook('Go_work')
         line_bot_api.reply_message(
         event.reply_token,

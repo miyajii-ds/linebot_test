@@ -72,13 +72,19 @@ def callback_post():
 def reply_message(event):
     # reply のテスト。
     if event.message.text in ['リビング照明 ON/OFF']:
-        ifttt_webhoook('Go_work')
+        #ifttt_webhoook('Go_work')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text+'しました。'))
 
-    if event.message.text in '寝室照明 ON/OFF':
-        #ifttt_webhoook('Go_work')
+    if event.message.text in 'TV ON/OFF':
+        ifttt_webhoook('TV')
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text+'しました。'))
+        
+    if event.message.text in 'エアコン ON/OFF':
+        ifttt_webhoook('Aircon')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text+'しました。'))

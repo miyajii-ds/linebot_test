@@ -71,17 +71,17 @@ def callback_post():
 @handler.add(MessageEvent, message=TextMessage)
 def reply_message(event):
     # reply のテスト。
-    if event.message.text in ['やあ']:
-        ifttt_webhoook('Go_work')
+    if event.message.text in ['リビング照明 ON/OFF']:
+        #ifttt_webhoook('Go_work')
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='こちらこーるばっく処理からお送りします:'+event.message.text))
+        TextSendMessage(text=event.message.text+'しました。'))
 
-    if event.message.text in 'でんき':
-        ifttt_webhoook('Go_work')
+    if event.message.text in '寝室照明 ON/OFF':
+        #ifttt_webhoook('Go_work')
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='電気つけたよ:'+event.message.text))
+        TextSendMessage(text=event.message.text+'しました。'))
 
 
 

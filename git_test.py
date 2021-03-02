@@ -17,7 +17,7 @@ IFTTT_KEY = os.environ['IFTTT_KEY']
 
 def ifttt_webhoook(event_id):
 	ifttt_url = 'https://maker.ifttt.com/trigger/'+event_id+'/with/key/'+IFTTT_KEY
-	response = requests.post(ifttt_url)
+	requests.post(ifttt_url)
 
 # 必須ではないけれど、サーバに上がったとき確認するためにトップページを追加しておきます。
 @app.route('/')

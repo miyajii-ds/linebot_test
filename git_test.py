@@ -72,7 +72,7 @@ def callback_post():
 def reply_message(event):
     # reply のテスト。
     if event.message.text in ['リビング照明 ON/OFF']:
-        #ifttt_webhoook('Go_work')
+        ifttt_webhoook('Go_work')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text+'しました。'))

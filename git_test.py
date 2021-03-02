@@ -1,12 +1,11 @@
 from flask import Flask, request, abort
 
-
 # 環境変数取得のため。
 import os
 
 # ログを出力するため。
-import logging
-import sys
+#import logging
+#import sys
 
 import requests
 
@@ -25,6 +24,12 @@ def ifttt_webhoook(event_id):
 def top_page():
 	return 'Here is root page.'
 
+
+# ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
+@app.route('/callback', methods=['POST'])
+def callback_post():
+	ifttt_webhoook(webhooks_test)
+	return 'OK'
 
 if __name__ == '__main__':
 	app.run()

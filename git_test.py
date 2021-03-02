@@ -17,7 +17,8 @@ IFTTT_KEY = os.environ['IFTTT_KEY']
 
 def ifttt_webhoook(event_id):
 	ifttt_url = 'https://maker.ifttt.com/trigger/'+event_id+'/with/key/'+IFTTT_KEY
-	requests.post(ifttt_url)
+	response = requests.post(ifttt_url)
+	print(response)
 
 # 必須ではないけれど、サーバに上がったとき確認するためにトップページを追加しておきます。
 @app.route('/')
@@ -28,7 +29,10 @@ def top_page():
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/callback', methods=['POST'])
 def callback_post():
+	print('before ok')
 	ifttt_webhoook(webhooks_test)
+	print('afetr ok')
+	
 	return 'OK'
 
 if __name__ == '__main__':

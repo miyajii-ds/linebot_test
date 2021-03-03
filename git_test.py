@@ -29,11 +29,11 @@ def top_page():
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/callback', methods=['POST'])
 def callback_post():
-	print('before ok')
-	ifttt_webhoook(webhooks_test)
-	print('afetr ok')
-	
-	return 'OK'
+	if request.headers['test-Signature'] == 'abc':
+		print('before')
+		ifttt_webhoook(webhooks_test)
+		
+		return 'OK'
 
 if __name__ == '__main__':
 	app.run()

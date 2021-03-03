@@ -78,7 +78,7 @@ def reply_message(event):
         TextSendMessage(text=event.message.text+'しました。'))
 
     if event.message.text in 'TV ON/OFF':
-        ifttt_webhoook('TV')
+        ifttt_webhoook('webhooks_test')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text+'しました。'))

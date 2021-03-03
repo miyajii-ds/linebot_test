@@ -64,6 +64,8 @@ def callback_post():
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
+	
+    ifttt_webhoook('webhooks_test')
 
     return 'OK'
 

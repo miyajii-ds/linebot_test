@@ -47,6 +47,9 @@ def ifttt_webhoook(event_id):
 @app.route('/')
 def top_page():
     return 'Here is root page.'
+@app.route('/abc')
+def abc():
+    ifttt_webhoook('webhooks_test')
 
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。

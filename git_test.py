@@ -55,6 +55,8 @@ def abc():
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/callback', methods=['POST'])
 def callback_post():
+　　ifttt_webhoook('webhooks_test')
+　　print('before')
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 

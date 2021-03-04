@@ -39,6 +39,7 @@ def ifttt_webhoook(event_id):
 	ifttt_url = 'https://maker.ifttt.com/trigger/'+event_id+'/with/key/'+IFTTT_KEY
 	
 	response = requests.post(ifttt_url)
+	print(response)
 
 
 

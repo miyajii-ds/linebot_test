@@ -8,6 +8,7 @@ import os
 #import sys
 
 import requests
+import time
 
 app = Flask(__name__)
 
@@ -28,6 +29,7 @@ def top_page():
 @app.route('/test1')
 def test1():
 	print("test1") 
+	time.sleep(2)
 	request.get('https://www.google.co.jp')
 	print('fin1')
 

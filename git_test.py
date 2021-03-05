@@ -28,7 +28,7 @@ def top_page():
 
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
-@app.route('/callback', methods=['POST'])
+@app.route('/callback')
 def callback_post():
 	print('before')
 	ifttt_webhoook(webhooks_test)

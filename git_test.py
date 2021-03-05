@@ -32,9 +32,11 @@ def top_page():
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/callback', methods=['POST'])
 def callback_post():
+	global flag
 	print('before')
 	ifttt_webhoook('webhooks_test')
-	a = 3+4
+	flag += 1
+	
 	print('flag:'+str(flag))
 	return 'OK'
 

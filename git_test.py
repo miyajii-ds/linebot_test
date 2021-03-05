@@ -51,6 +51,7 @@ def top_page():
 @app.route('/abc')
 def abc():
     ifttt_webhoook('webhooks_test')
+    return 'OKOK'
 
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。

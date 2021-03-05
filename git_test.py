@@ -26,22 +26,13 @@ def ifttt_webhoook(event_id):
 def top_page():
 	return 'Here is root page.'
 
-@app.route('/test1')
-def test1():
-	print("test1") 
-	time.sleep(2)
-	request.get('https://www.google.co.jp')
-	print('fin1')
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/callback', methods=['POST'])
 def callback_post():
-	if request.headers['test-Signature'] == 'abc':
-		print('before')
-		ifttt_webhoook(webhooks_test)
-
-		
-		return 'OK'
+	print('before')
+	ifttt_webhoook(webhooks_test)
+	return 'OK'
 
 if __name__ == '__main__':
 	app.run()

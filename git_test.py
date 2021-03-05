@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 # 大事な情報は環境変数から取得。
 IFTTT_KEY = os.environ['IFTTT_KEY']
+flag = False
 
 def ifttt_webhoook(event_id):
 	ifttt_url = 'https://maker.ifttt.com/trigger/'+event_id+'/with/key/'+IFTTT_KEY
@@ -32,6 +33,8 @@ def top_page():
 def callback_post():
 	print('before')
 	ifttt_webhoook('webhooks_test')
+	flag = not flag
+	print('flag:'+str(flag))
 	return 'OK'
 
 if __name__ == '__main__':

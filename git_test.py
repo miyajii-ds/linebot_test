@@ -28,14 +28,28 @@ def ifttt_webhoook(event_id):
 def top_page():
 	return 'Here is root page.'
 
-
+# ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
+@app.route('/count', methods=['POST'])
+def count_post():
+	global flag
+	print('before')
+	ifttt_webhoook('webhooks_test')
+	flag += 1
+	
+	print('flag:'+str(flag))
+	return 'OK'
+	
+	
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/callback', methods=['POST'])
 def callback_post():
 	global flag
 	print('before')
-	ifttt_webhoook('webhooks_test')
-	flag += 1
+	if flag >= 3:
+		ifttt_webhoook('webhooks_test')
+		flag = 0
+		print(flag)
+	
 	
 	print('flag:'+str(flag))
 	return 'OK'

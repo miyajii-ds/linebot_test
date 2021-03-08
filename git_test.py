@@ -39,7 +39,7 @@ def ratoc_sensor():
 	print('data'+str(data))
 	illumi = data['illuminance']
 	print(illumi)
-	print(illumi.type())
+	print(type(illumi))
 	return 'ratoc'
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。

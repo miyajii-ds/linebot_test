@@ -38,7 +38,8 @@ def ratoc_sensor():
 	print('illumi'+str(illumi))
 	print('data:'+str(data))
 	#illumi = data['illuminance']
-	print(illumi)
+	print(illumi["illuminance"])
+	print(illumi['illuminance'])
 	print(type(illumi))
 	return 'ratoc'
 

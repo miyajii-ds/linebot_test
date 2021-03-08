@@ -33,10 +33,10 @@ def top_page():
 @app.route('/ratoc-sensor', methods=['POST'])
 def ratoc_sensor():
 	global light_flag
-	illumi = request.json['Illminance']
-	data = request.get_data()
-	print('illumi'+str(illumi))
-	print('data'+str(data))
+	#illumi = request.json['Illminance']
+	#data = request.get_data()
+	#print('illumi'+str(illumi))
+	#print('data'+str(data))
 	return 'ratoc'
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。

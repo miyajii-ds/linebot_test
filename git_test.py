@@ -16,6 +16,7 @@ app = Flask(__name__)
 # 大事な情報は環境変数から取得。
 IFTTT_KEY = os.environ['IFTTT_KEY']
 flag = 0
+light_flag = False
 print(flag)
 
 def ifttt_webhoook(event_id):
@@ -27,6 +28,16 @@ def ifttt_webhoook(event_id):
 @app.route('/')
 def top_page():
 	return 'Here is root page.'
+
+
+@app.route('/ratoc-sensor', methods=['POST'])
+def ratoc_sensor():
+	global light_flag
+	illumi = request.json['Illminance']
+	data = request.get_data()
+	print('illumi'+str(illumi))
+	print('data'+str(data))
+	return 'ratoc'
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/count', methods=['POST'])

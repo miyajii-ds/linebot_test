@@ -34,9 +34,9 @@ def top_page():
 def ratoc_sensor():
 	global light_flag
 	#illumi = request.json['Illminance']
-	#data = request.get_data()
+	data = request.get_data()
 	#print('illumi'+str(illumi))
-	#print('data'+str(data))
+	print('data'+str(data))
 	return 'ratoc'
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。

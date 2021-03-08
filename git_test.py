@@ -51,6 +51,9 @@ def count_post():
 	ifttt_webhoook('webhooks_test')
 	flag += 1
 	
+	data = request.json
+	print(data)
+	
 	print('flag:'+str(flag))
 	return 'OK'
 	

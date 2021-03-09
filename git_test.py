@@ -53,7 +53,7 @@ def count_post():
 	
 	header = request.headers
 	print(header)
-	data = request.get_data()
+	data = request.json
 	print(data)
 	
 	print('flag:'+str(flag))

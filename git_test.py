@@ -43,7 +43,7 @@ def ratoc_sensor():
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/alerm', methods=['POST'])
-def count_post():
+def alarm():
 	global light_flag
 	print('alerm')
 	if not light_flag:

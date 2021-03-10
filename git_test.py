@@ -33,8 +33,8 @@ def top_page():
 @app.route('/ratoc-sensor', methods=['POST'])
 def ratoc_sensor():
 	global light_flag
-	illumi = request.json
-	print(illumi[illuminance])
+	#illumi = request.json
+	#print(illumi[illuminance])
 	print(light_flag)
 	#if illumi[illuminance] >= 100:
 		#light_flag = True

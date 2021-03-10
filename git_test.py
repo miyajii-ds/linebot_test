@@ -34,14 +34,22 @@ def top_page():
 def ratoc_sensor():
 	global light_flag
 	illumi = request.json
-	data = request.get_data()
-	print('illumi'+str(illumi))
-	print('data:'+str(data))
-	#illumi = data['illuminance']
-	print(illumi["illuminance"])
-	print(illumi['illuminance'])
-	print(type(illumi))
-	return 'ratoc'
+	if illumi[illuminance] >= 100:
+		light_flag = True
+	else:
+		light_flag = False
+		
+	return 'ligth_flag'+str(light_flag)
+
+# ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
+@app.route('/alerm', methods=['POST'])
+def count_post():
+	global light_flag
+	print('alerm')
+	if not light_flag:
+		ifttt_webhoook('webhooks_test')
+	
+	return 'alerm ok'
 
 # ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
 @app.route('/count', methods=['POST'])
@@ -51,12 +59,6 @@ def count_post():
 	ifttt_webhoook('webhooks_test')
 	flag += 1
 	
-	header = request.headers
-	print(header)
-	data = request.json
-	print(data)
-	#print(type(data[illuminance]))
-        print(data[illuminance])
 	print('flag:'+str(flag))
 	return 'OK'
 	

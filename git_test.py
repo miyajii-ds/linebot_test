@@ -29,7 +29,7 @@ def ifttt_webhoook(event_id):
 def top_page():
 	return 'Here is root page.'
 
-
+#照度センサー情報取得　明るさ判断
 @app.route('/ratoc-sensor', methods=['POST'])
 def ratoc_sensor():
 	global light_flag
@@ -40,10 +40,10 @@ def ratoc_sensor():
 		light_flag = True
 	else:
 		light_flag = False
-		
-	return 'ligth_flag'+str(light_flag)
+	print('ligth_flag'+str(light_flag))
+	return 'sensor ok'
 
-# ユーザがメッセージを送信したとき、この URL へアクセスが行われます。
+#ショートカットアクセス
 @app.route('/alerm', methods=['POST'])
 def alarm():
 	global light_flag

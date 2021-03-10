@@ -55,7 +55,8 @@ def count_post():
 	print(header)
 	data = request.json
 	print(data)
-	print(type(data[illuminance]))
+	#print(type(data[illuminance]))
+        print(data[illuminance])
 	print('flag:'+str(flag))
 	return 'OK'
 	

@@ -36,6 +36,7 @@ def ratoc_sensor():
 	illumi = request.json
 	print(illumi['illuminance'])
 	print(light_flag)
+	light_flag = True
 	#if illumi['illuminance'] >= 100:
 		#light_flag = True
 	#else:

@@ -37,7 +37,7 @@ def ratoc_sensor():
 	print(illumi['illuminance'])
 	print(light_flag)
 	#light_flag = True
-	if illumi['illuminance'] >= 100:
+	if int(illumi['illuminance']) >= 100:
 		light_flag = True
 	#else:
 		#light_flag = False

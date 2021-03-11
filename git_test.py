@@ -17,6 +17,7 @@ app = Flask(__name__)
 IFTTT_KEY = os.environ['IFTTT_KEY']
 flag = 0
 light_flag = False
+print('init')
 print(flag)
 
 def ifttt_webhoook(event_id):
@@ -49,6 +50,7 @@ def ratoc_sensor():
 def alarm():
 	global light_flag
 	print('alerm')
+	print(light_flag)
 	if not light_flag:
 		ifttt_webhoook('webhooks_test')
 	

@@ -34,7 +34,7 @@ def top_page():
 def ratoc_sensor():
 	global light_flag
 	illumi = request.json
-	#print(illumi['illuminance'])
+	print(illumi['illuminance'])
 	print(light_flag)
 	#if illumi['illuminance'] >= 100:
 		#light_flag = True

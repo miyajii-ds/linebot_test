@@ -70,7 +70,7 @@ def callback_post():
     except InvalidSignatureError:
         abort(400)
 	
-    ifttt_webhoook('webhooks_test')
+    #ifttt_webhoook('webhooks_test')
 
     return 'OK'
 
@@ -85,7 +85,7 @@ def reply_message(event):
         TextSendMessage(text=event.message.text+'しました。'))
 
     if event.message.text in 'TV ON/OFF':
-        ifttt_webhoook('webhooks_test')
+        ifttt_webhoook('TV')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text+'しました。'))
